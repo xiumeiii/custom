@@ -128,3 +128,25 @@
   .vuepress.
   ```
   :tada: :100: :bamboo: :gift_heart: :fire:
+
+
+  ## 本地新建项目，第一次提交到git新建的仓库
+  直接关联远程
+  ```bash
+  git remote add origin https://github.com/userName/custom.git
+  会报
+  fatal: Not a git repository (or any of the parent directories): .git
+  ```
+  解决：
+  ```bash
+  首先：
+    git init
+  然后关联：
+    git remote add origin https://github.com/userName/custom.git
+    然后远程就是master分支了
+  再次提交：
+    git add .
+    git commit -m ""
+    git push origin master
+  提交成功
+  ```
