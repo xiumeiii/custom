@@ -150,3 +150,49 @@
     git push origin master
   提交成功
   ```
+## vue style 深度作用选择器（>>> 与 /deep/(sass/less用法)）
+```html
+<!-- vue编译后的html -->
+<div data-v-17bb8a05 class="fuck"> 
+  <div class="weui-cells"> </div>
+</div>
+
+
+<style lang="less" scoped>
+  .fuck .weui-cells {
+    /* 没有任何效果
+    因为，所有的scoped中的css最终编译出来都会变成这样 
+    .fuck[data-v-17bb9a05] .weui-cells[data-v-17bb9a05] */
+  }
+</style>
+
+```
+```less
+// 解决方式：
+
+// 方法1：scoped 移除,style标签样式完全变成全局的 
+<style lang="less">
+  .fuck .weui-cells {
+      /* 没有任何效果 */
+}
+</style>
+
+// 方法2：使用 深度作用选择器  >>>  （但是只作用于css，sass/less的话可能无法识别）
+<style lang="less" scoped>
+  .fuck >>> .weui-cells {
+      // ...
+  }
+</style>
+
+// 方法3：使用 /deep/ 选择器
+<style lang="scss" scoped>
+  .fuck {
+    /deep/ .weui-cells {
+      // ...
+    }
+  }
+  </style>
+```
+
+
+

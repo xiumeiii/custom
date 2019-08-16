@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动态滚动条</title>
+</head>
+<style>
+  .progress-bar {
+    height: 20px;
+    width: 600px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #fff;
+    margin: 50px auto;
+  }
+
+  .progress-val {
+    height: 20px;
+    width: 400px;
+    background: repeating-linear-gradient(45deg, #99ccff 0px, #99ccff 15px, #0099cc 30px);
+    background-size: 42px 20px;
+    animation: progress-striped 1s linear 0s infinite normal both;
+
+  }
+
+  @keyframes progress-striped {
+    from {
+      background-position: 42px 0px;
+    }
+
+    to {
+      background-position: 0px 0px;
+    }
+  }
+</style>
+
+<body>
+  <div class="progress-bar">
+    <div class="progress-val"></div>
+  </div>
+</body>
+
+</html>
