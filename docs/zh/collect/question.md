@@ -1,3 +1,4 @@
+<!-- [[toc]] -->
 ## img
 
   img标签的src直接写地址即可发起图片请求
@@ -6,7 +7,7 @@
   ```
 
 ## window点击跳转新页面
-  ```js
+  ```js{3}
   window.location.href = url
   或
   window.open(`.../link/info`)

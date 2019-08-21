@@ -1,6 +1,7 @@
 <template>
   <div class="home-right-image">
    {{msg}}
+   <slot></slot>
   </div>
 </template>
 

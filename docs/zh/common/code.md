@@ -1,3 +1,4 @@
+## 常用code
 ```js
 // 页面加载完成后处理
  this.$nextTick(() => {
