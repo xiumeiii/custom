@@ -34,4 +34,29 @@
 </table>
 ```
 
+# slot
+:::tip
+  封装的vue模板中判断是否有sidebar这个插槽
+  ```html
+  <template v-if="$slots.sidebar" slot="sidebar">
+    <slot name="sidebar"></slot>
+  </template>
+  ```
+:::
+# tabs
+```html
+<div class="tabs">
+  <el-tabs :value="curTab" @input="handleCurTab">
+    <el-tab :label="tab1" name="tab1"></el-tab>
+    <el-tab :label="tab2" name="tab2"></el-tab>
+  </el-tabs>
+  <router-view></router-view>
+</div>
+```
+```js
+handleCurTab (val) {
+  this.curTab = val
+  this.$router.push(`/..../${val}`)
+}
+```
 
