@@ -1,4 +1,4 @@
-<!-- [[toc]] -->
+# 常见问题
 ## img
 
   img标签的src直接写地址即可发起图片请求
@@ -44,7 +44,11 @@
 
   ## 数组包含对象
   ```js
-  return list.contains(ele)
+  return list.contains(ele) // list每个对象为object，ele为object包含多个key、value
+
+  let list = ['test','link']
+  let ele = 'test'
+   return list.includes(ele) // true
   ```
   ## 抛出错误提示
   ```js

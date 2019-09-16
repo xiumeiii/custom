@@ -1,4 +1,6 @@
-## 常用code
+# 常用代码
+
+## $nextTick
 ```js
 // 页面加载完成后处理
  this.$nextTick(() => {
@@ -6,7 +8,10 @@
       this.menuSelection.filter(node => !node.children).map(node => node.indexCode)
     )
   })
-// 校验是否通过
+```
+
+## 校验
+```js
 this.$refs.form.validate((valid) => {
   if (valid) {
     
@@ -17,17 +22,25 @@ this.$refs.form.validate((valid) => {
 
 // 重置校验表单
 this.$refs.form && this.$refs.form.resetFields()
-
+```
+## 数据绑定
+```js
 // 更新已有绑定的数据
  this.$set(data, key, value)
+```
 
-// vuex
+## vuex
+```js
  commit('commonInfo', commonInfo)
 
+```
+
+## 事件监听
+```js
 // 添加和取消事件监听
- destroyed () {
-    window.removeEventListener('resize', this.resizeMethod)
-  },
+destroyed () {
+  window.removeEventListener('resize', this.resizeMethod)
+},
 mounted () {
    this.$nextTick(() => {
       this.resizeMethodx()
@@ -38,16 +51,24 @@ mounted () {
 beforeDestroy () {
   this.$off()
 },
+```
 
+## 数组循环
+```js
 // 判断是否是数组
 Array.isArray(aaa)
 // 循环
 aaa.forEach(item => {})
 data.map(item => item.xxx).includes(Obj)
+```
 
-// 解构
+## 解构
+```js
 let { data } = this
+```
 
+## watch
+```js
 // 监听
 watch: {
   aaa: {
@@ -59,8 +80,10 @@ watch: {
   // aaa (val) {
   // }
 },
+```
 
-// prop
+## prop
+```js
 props: {
   // 数组
   aaa: {

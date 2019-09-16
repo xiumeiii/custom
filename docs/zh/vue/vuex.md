@@ -1,4 +1,6 @@
-# Vuex的辅助函数mapState, mapActions, mapMutations
+# vuex
+
+## Vuex的辅助函数mapState, mapActions, mapMutations
 ## 目录结构如下：
 
 ```pure
@@ -304,7 +306,7 @@ new Vuex.store({}) 含义是创建一个Vuex实列。store是vuex的一个核心
 ***理解dispatch***: 它含有异步操作，含义可以理解为 '派发'，比如向后台提交数据，可以为 this.$store.dispatch('actions方法名', 值);
 :::
 
-## 使用vuex到项目中
+## vuex运到项目中
 ### 创建vuex
 ```js
 // app/index/store/index.js 

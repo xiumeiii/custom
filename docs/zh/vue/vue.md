@@ -1,3 +1,11 @@
+# vue 常识
+
+[vue中文论坛](https://forum.vuejs.org/c/chinese)
+
+[Vue.js专业中文社区](https://www.vue-js.com/)
+
+[VueConf - Vue.js开发者大会](https://img.w3ctech.com/VueConf2019SH_Evan.pdf)
+
 ## v-bind="$props"
 
 我们有很多的原生属性，比如：name、placeholder、disabled等等。我们如果都定义在props显示接收，未免太过繁琐。所以官网出现了：v-bind="$props"这样的操作

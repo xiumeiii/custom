@@ -1,4 +1,4 @@
-## 广播
+# 广播
 
 dispatch 和 broadcast 方法都需要 3 个参数，componentName 组件名称， eventName 事件名称， params 传递的参数
 :::tip
