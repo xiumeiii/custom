@@ -127,6 +127,7 @@ module.exports = {
       title: 'js相关',
       collapsable: false,
       children: [
+        '/zh/javascript/base',
         '/zh/javascript/javascript'
       ]
     },

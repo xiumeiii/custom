@@ -68,3 +68,4 @@ handleCurTab (val) {
 }
 ```
 
+v-show  在keep-alive不生效

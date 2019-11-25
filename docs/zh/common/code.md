@@ -36,6 +36,11 @@ this.$refs.form && this.$refs.form.resetFields()
 ```
 
 ## 事件监听
+
+[自定义事件](https://www.cnblogs.com/shapeY/p/7923353.html)
+
+[js原生事件](https://blog.csdn.net/yushuangyushuang/article/details/79306993)
+
 ```js
 // 添加和取消事件监听
 destroyed () {

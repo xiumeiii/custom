@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link href="css/style.css" rel="stylesheet"> -->
+  <script src="../../resource/vue-2.6.10.js"></script>
+</head>
+
+<body>
+  <div id="myApp">
+    <img :src="imgUrl" alt="上海鲜花港 - 郁金香" />
+  </div>
+
+</body>
+
+<script type="module">
+  let vm = new Vue({
+    el: '#myApp',
+    data() {
+      return {
+        imgUrl: 'aaavvv',
+        dataList: []
+      }
+    },
+    methods: {
+      // 场景1：promise图片异步加载
+      loadImageAsync(url) {
+        return new Promise((resolve, reject) => {
+          // image创建的'<img src="./images/Chrysanthemum.jpg">'，直接append到body即可
+          const image = new Image();
+          image.onload = () => {
+            resolve(image);
+          };
+
+          image.onerror = () => {
+            reject(new Error('Could not load image at ' + url));
+          };
+          this.imgUrl = url
+          image.src = url;
+        });
+      },
+      // 场景2：promise定时器模拟异步加载
+      timeout(ms) {
+        return new Promise((resolve, reject) => {
+          // 根据条件不同返回resolve或reject，{ aaa: 'done' }为resolve回传参数
+          setTimeout(resolve, ms, { aaa: 'done' }); // setTimeout(resolve({ aaa: 'done' }), ms, ); 2种形式同等
+          // setTimeout(resolve({ aaa: 'done', bbb: ddd }), ms);
+        })
+      },
+      // 场景3：Promise对象实现的 Ajax 操作的例子
+      getJSON(url) {
+        const promise = new Promise(function (resolve, reject) {
+          const handler = function () {
+            if (this.readyState !== 4) {
+              return;
+            }
+            if (this.status === 200) {
+              resolve(this.response);
+            } else {
+              reject(new Error(this.statusText));
+            }
+          };
+          const client = new XMLHttpRequest();
+          client.open("GET", url);
+          client.onreadystatechange = handler;
+          client.responseType = "json";
+          client.setRequestHeader("Accept", "application/json");
+          client.send();
+
+        });
+
+        return promise;
+      },
+
+      // 场景4：resolve参数为promise
+      returnPromise() {
+        const p1 = new Promise(function (resolve, reject) {
+          console.log('p1')
+          setTimeout(() => reject(new Error('fail')), 3000)
+        })
+
+        const p2 = new Promise(function (resolve, reject) {
+          console.log('p2')
+          setTimeout(() => resolve(p1), 1000)
+        })
+
+        p2
+          .then(result => console.log(result))
+          .catch(error => console.log(error))
+      }
+    },
+    mounted() {
+      // this.loadImageAsync('./images/Chrysanthemum.jpg').then((val) => {
+      //   console.log('val:', val)
+      // }, (err) => {
+      //   console.log('err:', err)
+      // })
+
+      // this.timeout(100).then((value) => {
+      //   console.log('value:', value);
+      // }, (err) => {
+      //   console.log('err:', err);
+      // });
+
+      // this.getJSON("./data.json").then(function (json) {
+      //   console.log('Contents: ' + json);
+      // }, function (error) {
+      //   console.error('出错了', error);
+      // })
+
+      // this.returnPromise()
+
+
+
+      // promise的推荐写法
+      // promise // bad
+      //   .then(function (data) {
+      //     // success
+      //   }, function (err) {
+      //     // error
+      //   });
+
+      // // good
+      // promise
+      //   .then(function (data) { //cb
+      //     // success
+      //   })
+      //   .catch(function (err) {
+      //     // error
+      //   });
+    }
+  })
+  console.log(vm)
+</script>
+
+
+</html>

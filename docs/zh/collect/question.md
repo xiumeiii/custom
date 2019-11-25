@@ -199,5 +199,16 @@
   </style>
 ```
 
+## 外网访问不了内网的图片----即图片跨域问题
+```html
+<img :src="returnUrl(imageurl)" style="height:30px;"/>
+```
+```javascript
+returnUrl (url) {
+  return `${window.location.origin}/api/getPic?url=${url}`
+}
+// returnUrl的形式是：http://ip:port/api/getPic?url=图片url地址
+```
+
 
 

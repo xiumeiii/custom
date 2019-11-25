@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>circle-rotate</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <canvas id="canvas" style="width:600px;height:300px;">
+    Your browser does not support the HTML5 canvas tag.
+  </canvas>
+</body>
+<script>
+  window.onload = function () {
+    draw()
+  }
+  function draw() {
+    let ctx = document.getElementById('canvas').getContext('2d')
+    ctx.translate(75, 75)
+
+    for (let i = 1; i < 6; i++) { // Loop through rings (from inside to out)
+      ctx.save()
+      ctx.fillStyle = 'rgb(' + (51 * i) + ',' + (255 - 51 * i) + ',255)'
+
+      for (let j = 0; j < i * 6; j++) { // draw individual dots
+        ctx.rotate(Math.PI * 2 / (i * 6))
+        ctx.beginPath()
+        // x:圆的中心的 x 坐标。y: 圆的中心的 x 坐标。r:半径
+        // sAngle:起始角，以弧度计。（弧的圆形的三点钟位置是 0 度）。eAngle:结束角，以弧度计。
+        // counterclockwise: 规定应该逆时针还是顺时针绘图。False = 顺时针，true = 逆时针
+        ctx.arc(0, i * 12.5, 5, 0, Math.PI * 2, true)
+        ctx.fill()
+      }
+
+      ctx.restore()
+    }
+  }
+</script>
+
+</html>
