@@ -3,7 +3,7 @@
 [emoji](http://www.fhdq.net/emoji.html "常用Emoji符号")
 
 
-🐛 🎲  🌟 ⏰
+🐛 🎲  🌟 ⏰ 💪
 ✨ 🔯  💱
 
 🌹🍀🍎💰📱🌙🍁🍂🍃🌷💎🔪🔫🏀⚽⚡👄👍🔥

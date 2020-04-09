@@ -7,18 +7,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link href="css/style.css" rel="stylesheet"> -->
   <style>
+    /* 特殊字符 */
     a::before {
       content: "♥";
       color: red;
     }
 
     blockquote::before {
-      content: "\ 201C";
+      /* unicode码 */
+      content: "\0913\1409:";
+      /* 图片 */
+      /* content: url("./images/Desert.jpg"); */
       color: red;
-      font-size: 3em;
+      font-size: 1.2em;
       position: relative;
-      top: 20px;
+      top: 2px;
     }
+
+    /* 清除浮动 */
+    .parent::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      clear: both;
+    }
+
+    .demo::before {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-right: 8px solid #AFABAB;
+      position: relative;
+      top: 2px;
+      left: -6px;
+    }
+
+    .demo:after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-left: 8px solid #AFABAB;
+      position: relative;
+      top: 2px;
+      left: 10px;
+    }
+
+    /* 对话框 start */
+    .speak-dialog {
+      background-color: rgb(204, 204, 204, 0.14);
+      width: 400px;
+      height: 100px;
+      padding: 10px;
+    }
+
+    .left {
+      float: left;
+      left: 10px;
+    }
+
+    .right {
+      float: right;
+    }
+
+    .left,
+    .right {
+      min-height: 40px;
+      position: relative;
+      display: table;
+      text-align: center;
+      border-radius: 7px;
+      background-color: #9EEA6A;
+      border: 1px solid #736262;
+    }
+
+    .right {
+      /*使左右的对话框分开*/
+      top: 40px;
+      right: 10px;
+    }
+
+    .left>p,
+    .right>p {
+      /*使内容居中*/
+      display: table-cell;
+      vertical-align: middle;
+      padding: 0 10px;
+    }
+
+    .left:before,
+    .right:after,
+    .left:after,
+    .right:before {
+      /*用伪类写出小三角形*/
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      position: absolute;
+      top: 11px;
+    }
+
+    /*分别给左右两边的小三角形定位*/
+    .left:before {
+      border-right: 8px solid #9EEA6A;
+      left: -16px;
+    }
+
+    .left:after {
+      /*左边对话框小三角形的边框样式*/
+      border-right: 8px solid #736262;
+      left: -17px;
+      z-index: -1;
+    }
+
+    .right:after {
+      border-left: 8px solid #9EEA6A;
+      right: -16px;
+    }
+
+    .right:before {
+      /*右边对话框小三角形的边框样式*/
+      border-left: 8px solid #736262;
+      right: -17px;
+      z-index: -1;
+    }
+
+    /* 对话框 end */
   </style>
 </head>
 
@@ -28,6 +148,20 @@
   <blockquote>
     你目前的情况并不能确定你可以去哪里;
   </blockquote>
+  <ul class="parent">
+    <li class="child"></li>
+  </ul>
+  <div class="demo">这是一个测试</div>
+
+  <div class="speak-dialog">
+    <div class="left">
+      <p>吃了吗</p>
+    </div>
+    <div class="right">
+      <p>吃过了，吃了红烧排骨和酸菜鱼</p>
+    </div>
+  </div>
+
 </body>
 <script>
 

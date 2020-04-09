@@ -7,6 +7,8 @@
 
 [Prism-合法的语言列表](https://prismjs.com/#languages-list "Prism-合法的语言列表")
 
+[中文网](https://www.php.cn/course/list/12.html)
+
 ## 历史查询
 
 [Markdown 语法整理大集合2017][2]
@@ -65,6 +67,11 @@
 [中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
 
 [(下篇)中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂](https://juejin.im/post/5cc26dfef265da037b611738)
+
+## 这种大全
+Unicode采用16进制
+[Unicode®字符百科](https://unicode-table.com/cn/#control-character)
+
 
 
 
